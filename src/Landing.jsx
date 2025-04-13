@@ -10,11 +10,11 @@ export default function Landing() {
         <div className="flex items-center h-16">
           <img src={assets.logo} alt="Developer Logo" className="w-16 h-16 rounded-lg" />
         </div>
-        <div className="w-80 h-10 flex justify-between">
-          {['Home', 'Admin', 'Room', 'Streak'].map((label) => (
+        <div className="w-1/3 h-10 flex justify-between">
+          {['Home', 'Host', 'Join Clash', 'Skill Sheet'].map((label) => (
             <button
               key={label}
-              className="transition transform hover:-translate-y-1 hover:shadow-md font-medium border-2 rounded-lg w-16"
+              className="transition transform hover:-translate-y-1 hover:shadow-md font-medium border-2 rounded-lg w-24"
             >
               {label}
             </button>
@@ -24,7 +24,20 @@ export default function Landing() {
           Login
         </button>
       </div>    
-      
+      <div className='hover:cursor-default space-y-3.5 w-screen h-screen flex flex-col  justify-center items-center'>
+      <h1 className='text-4xl font-bold mb-4'>Welcome to Leetclash</h1>
+      <p className='text-lg mb-6'>Join us for a fun and challenging coding experience!</p>
+        <div className='w-[calc(100%-50rem)] h-[calc(100%-10rem)] flex flex-col  space-y-3.5 items-center bg-gray-800 rounded-lg shadow-[rgb(38,57,77)_0px_20px_30px_-10px] p-8'>
+          <p className='text-4xl font-bold mb-4'>📊  Scoreboard</p>
+          <div className='w-[calc(100%-3rem)] h-[calc(100%-90rem)] flex flex-row items-center bg-gray-700 justify-between rounded-lg shadow-lg p-8'>
+            <p className='text-xl font-bold'>S.no</p>
+            <p className='text-xl font-bold'>Username</p>
+            <p className='text-xl font-bold'>Score</p>
+          </div>
+        </div>  
+      </div>  
+      <p className='text-white hover:text-gray-600 hover:cursor-default'>ℹ️  Participate in at least one challenge to view the scoreboard.</p>
+
       </div>
       
   );
