@@ -5,7 +5,11 @@ export default function Landing() {
  
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center" style={{ backgroundColor: '#6a6a6a' }}>
+    <div className="h-screen w-screen flex flex-col items-center bg-cover bg-center" 
+    style={{
+      backgroundImage: `url(${assets.background})`,
+      backgroundRepeat: 'no-repeat', 
+    }}>
       <div className="w-full h-20 border-b-2 flex justify-between items-center px-7">
         <div className="flex items-center h-16">
           <img src={assets.logo} alt="Developer Logo" className="w-16 h-16 rounded-lg" />
