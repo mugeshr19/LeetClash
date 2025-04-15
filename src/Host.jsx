@@ -39,7 +39,7 @@ export default function Host() {
       setTimeLeft(timeInSeconds);
       setSubmitted(true);
     } else {
-      alert('Please fill all fields (questions + timer)');
+      alert('Please fill all fields (question URLs + timer)');
     }
   };
 
@@ -87,13 +87,13 @@ export default function Host() {
           <div className="w-[calc(100%-50rem)] min-h-[22rem] text-white flex flex-col space-y-4 items-center bg-gray-800 rounded-lg shadow-[rgb(38,57,77)_0px_20px_30px_-10px] p-8">
             {!roomCode && (
               <>
-              <p className="text-lg text-white">Click the button below to create a new clash:</p>
-              <button
-                onClick={generateRoomCode}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
-              >
-                Create Clash
-              </button>
+                <p className="text-lg text-white">Click the button below to create a new clash:</p>
+                <button
+                  onClick={generateRoomCode}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
+                >
+                  Create Clash
+                </button>
               </>
             )}
 
@@ -114,7 +114,7 @@ export default function Host() {
                     <input
                       key={idx}
                       type="text"
-                      placeholder={`Enter LeetCode question ${idx + 1}`}
+                      placeholder={`Enter LeetCode URL ${idx + 1}`}
                       value={q}
                       onChange={(e) => handleInputChange(idx, e.target.value)}
                       className="w-full px-4 py-2 text-black rounded-md"
@@ -136,10 +136,15 @@ export default function Host() {
                 <p className="text-lg font-medium">🕒 Time Remaining: <span className="font-bold">{formatTime(timeLeft)}</span></p>
 
                 <div className="w-full space-y-2">
-                  <p className="text-lg font-semibold">Selected Questions:</p>
+                  <p className="text-lg font-semibold">Selected Question URLs:</p>
                   <ul className="list-disc pl-6">
                     {questions.map((q, idx) => (
-                      <li key={idx}>Question {idx + 1}: {q}</li>
+                      <li key={idx}>
+                        Question {idx + 1}:{' '}
+                        <a href={q} target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">
+                          {q}
+                        </a>
+                      </li>
                     ))}
                   </ul>
                 </div>
