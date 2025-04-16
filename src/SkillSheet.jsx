@@ -35,7 +35,7 @@ export default function SkillSheet() {
               <h1 className="text-4xl font-bold mb-4">Skill Sheet</h1>
               <p className="text-lg mb-6">💻✨ Coding across platforms | 🎮⚔️ Leveling up daily</p>
           
-          <div className="w-[calc(100%-50rem)] h-[calc(100%-15rem)] text-white   space-y-3.5 items-center bg-gray-800 rounded-lg shadow-[rgb(38,57,77)_0px_20px_30px_-10px] p-8 overflow-y-auto space-y-3.5 custom-scrollbar">
+          <div className="w-[calc(100%-50rem)] h-[calc(100%-15rem)] text-white space-y-4 items-center bg-gray-800 rounded-lg shadow-[rgb(38,57,77)_0px_20px_30px_-10px] p-8 overflow-y-auto custom-scrollbar">
 
           <div className='w-full h-5/6 flex flex-col items-center justify-between bg-gray-700 rounded-lg p-4 mb-4'>
             <div>
@@ -65,19 +65,19 @@ export default function SkillSheet() {
             </div>
             <div className='w-full h-14 flex items-center justify-between bg-gray-700 rounded-lg p-4 mb-4'>
               <h1 className='text-2xl font-bold mb-4'>Rating : </h1>
-              <h2 className='text-xl font-bold mb-4'>1384</h2>
+              <h2 className='text-xl font-bold mb-4'>12354</h2>
             </div>
             <div className='w-full h-14 flex items-center justify-between bg-gray-700 rounded-lg p-4 mb-4'> 
               <h1 className='text-2xl font-bold mb-4'>Contest Attended : </h1>
-              <h2 className='text-xl font-bold mb-4'>31</h2>
+              <h2 className='text-xl font-bold mb-4'>18</h2>
             </div>
             <div className='w-full h-14 flex items-center justify-between bg-gray-700 rounded-lg p-4 mb-4'>
               <h1 className='text-2xl font-bold mb-4'>Number of problems solved : </h1>
-              <h2 className='text-xl font-bold mb-4'>84</h2>
+              <h2 className='text-xl font-bold mb-4'>101</h2>
             </div>
             <div className='w-full h-14 flex items-center justify-between bg-gray-700 rounded-lg p-4 mb-4'>
               <h1 className='text-2xl font-bold mb-4'>Success Rate : </h1>
-              <h2 className='text-xl font-bold mb-4'>89%</h2>
+              <h2 className='text-xl font-bold mb-4'>90%</h2>
             </div>
           </div>
 
