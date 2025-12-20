@@ -1,9 +1,9 @@
-const express = require('express');
-const {
+import express from "express";
+import {
     leetcode,   
-} = require("../api_function/leetcode");
+} from "../api_function/leetcode.js";
 
 const router = express.Router();
 router.get("/profile/:username", leetcode);
 
-module.export = router;
+export default router;
