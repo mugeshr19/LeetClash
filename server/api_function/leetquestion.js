@@ -1,49 +1,59 @@
 import axios from "axios";
-``
-const leetquestion = async(req,res)=>{
-    const {number} = req.params;
-    try{
-        const response = await axios.post("https://leetcode.com/graphql",{
-            query:`
-            query questionData($number: Int!) {
-                questionList(
-                    categorySlug : ""
-                    filter: { frontendQuestionId: $number }
-                ){
-                    questions{
-                        frontendQuestionId
-                        title
-                        titleSlug
-                        difficulty
-                    }
-                }
-            }
-            `,
-            variables:{
-                number : Number(number)
-            }
-        },
-    {
-      headers:{
-        "Content-Type": "application/json"
-      }  
-    });
-        const question = respose.data.data.questionList.questions[0];
 
-        if(!question){
-            return  res.status(404).json({ error: "Question not found" });
+export const leetquestion = async (number) => {
+  const query = `
+    query problemsetQuestionList(
+      $categorySlug: String,
+      $limit: Int,
+      $skip: Int,
+      $filters: QuestionListFilterInput
+    ) {
+      problemsetQuestionList: questionList(
+        categorySlug: $categorySlug
+        limit: $limit
+        skip: $skip
+        filters: $filters
+      ) {
+        questions: data {
+          frontendQuestionId: questionFrontendId
+          title
+          titleSlug
+          difficulty
         }
-
-        res.json({
-            problemNumber: question.frontendQuestionId,
-            title: question.title,
-            difficulty: question.difficulty,
-            url: `https://leetcode.com/problems/${question.titleSlug}/`
-        });
-    } catch(error){
-        console.error("Error fetching question:", error);
-        res.status(500).json({ error: "Internal Server Error" });
+      }
     }
-};
+  `;
 
-export {leetquestion};
+  try {
+    const response = await axios.post(
+      "https://leetcode.com/graphql",
+      {
+        query,
+        variables: {
+          categorySlug: "",
+          skip: 0,
+          limit: 3500,
+          filters: {}, // return all problems
+        },
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0", // helps avoid being blocked
+        },
+      }
+    );
+
+    const questions =
+      response.data?.data?.problemsetQuestionList?.questions || [];
+
+    const found = questions.find(
+      (q) => Number(q.frontendQuestionId) === Number(number)
+    );
+    return found || null;
+
+  } catch (error) {
+    console.error("LeetCode API error:", error.response?.data || error);
+    return null;
+  }
+};

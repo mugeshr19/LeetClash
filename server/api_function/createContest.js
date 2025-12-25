@@ -1,12 +1,11 @@
-import contestSchema from "../models/contestSchema.js";
-import mongoose from "mongoose";
+import Contest from "../models/Contest.js";
 
 const createContest=async(req,res)=>{
     const {contestId,questionNumbers,startTime,endTime,createdBy} = req.body;
     if(
         !contestId||
         !Array.isArray(questionNumbers)||
-        !questionNumbers.length===0||
+        questionNumbers.length===0||
         !startTime||
         !endTime||
         !createdBy
@@ -17,7 +16,7 @@ const createContest=async(req,res)=>{
         return res.status(400).json({message:"Start time cannot be greater than end time"});
     }
     try{
-        const contest = await Connect.create({
+        const contest = await Contest.create({
             contestId,
             questionNumbers,
             startTime,
