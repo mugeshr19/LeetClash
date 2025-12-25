@@ -1,9 +1,9 @@
 import axios from "axios";
-
+``
 const leetquestion = async(req,res)=>{
     const {number} = req.params;
     try{
-        const respose = await axios.post("https://leetcode.com/graphql",{
+        const response = await axios.post("https://leetcode.com/graphql",{
             query:`
             query questionData($number: Int!) {
                 questionList(
